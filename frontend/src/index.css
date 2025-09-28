@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom components using Tailwind */
+@layer components {
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-button {
+    @apply glass-effect px-6 py-3 rounded-full text-white font-medium transition-all duration-300 hover:bg-white/20 hover:-translate-y-0.5;
+  }
+  
+  .glass-button-active {
+    @apply bg-white/30 border-white/60 -translate-y-0.5;
+  }
+  
+  .student-card {
+    @apply glass-effect rounded-2xl p-6 text-center transition-all duration-300 cursor-pointer border-2 border-transparent hover:-translate-y-2 hover:border-white/30 hover:shadow-xl;
+  }
+  
+  .student-card-voting {
+    @apply scale-105 border-success-500 shadow-glow-green;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .instagram-link {
+    @apply text-pink-500 hover:text-pink-400 font-medium transition-colors duration-300 no-underline;
+  }
+}
+
+/* Base styles */
+body {
+  @apply font-sans antialiased text-gray-900;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+}
+
+/* Keep the keyframes for animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
