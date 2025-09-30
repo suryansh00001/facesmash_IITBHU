@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Prism from './components/Prism';
 import './index.css';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || '/api';
@@ -120,9 +121,45 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen gradient-bg flex flex-col">
+    <div className="min-h-screen gradient-bg flex flex-col" style={{ position: 'relative' }}>
+      {/* Black Ultimate Background */}
+      <div style={{ 
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        width: '100%', 
+        height: '100vh', 
+        backgroundColor: 'black',
+        zIndex: -20,
+        pointerEvents: 'none'
+      }} />
+      
+      {/* Prism Background */}
+      <div style={{ 
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        width: '100%', 
+        height: '100vh', 
+        zIndex: -10,
+        pointerEvents: 'none'
+      }}>
+        <Prism
+          animationType="3drotate"
+          timeScale={0.5}
+          height={3.5}
+          baseWidth={5.5}
+          scale={3.0}
+          hueShift={0}
+          colorFrequency={1}
+          noise={0.3}
+          glow={0.7}
+          transparent={true}
+        />
+      </div>
+      
       {/* Header */}
-      <header className="glass-effect border-b border-white/20 px-4 sm:px-8 py-4 text-center">
+      <header className="glass-effect border-white/20 px-4 sm:px-8 py-4 text-center">
         <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 text-shadow animate-fade-in">
           🎓 Facesmash
         </h1>
